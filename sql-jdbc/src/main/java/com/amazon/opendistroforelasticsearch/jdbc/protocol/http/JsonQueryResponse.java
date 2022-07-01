@@ -55,10 +55,12 @@ public class JsonQueryResponse implements QueryResponse {
         return datarows;
     }
 
+    @JsonProperty("columns")
     public void setSchema(List<SchemaEntry> schema) {
         this.schema = schema;
     }
 
+    @JsonProperty("rows")
     public void setDatarows(List<List<Object>> datarows) {
         this.datarows = datarows;
     }

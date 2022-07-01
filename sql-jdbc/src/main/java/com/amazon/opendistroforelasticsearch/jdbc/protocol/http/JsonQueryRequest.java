@@ -29,11 +29,13 @@ public class JsonQueryRequest implements QueryRequest {
     private String query;
     private int fetchSize;
     private List<? extends Parameter> parameters;
+    
+    private String timeZone = "Asia/Seoul";
 
     public JsonQueryRequest(QueryRequest queryRequest) {
         this.query = queryRequest.getQuery();
         this.parameters = queryRequest.getParameters();
-        this.fetchSize = queryRequest.getFetchSize();
+        this.fetchSize = Math.max(queryRequest.getFetchSize(), 1);
 
     }
 
@@ -52,5 +54,10 @@ public class JsonQueryRequest implements QueryRequest {
     @Override
     public int getFetchSize() {
         return fetchSize;
+    }
+
+    @JsonProperty("time_zone")
+    public String getTimeZone() {
+        return timeZone;
     }
 }

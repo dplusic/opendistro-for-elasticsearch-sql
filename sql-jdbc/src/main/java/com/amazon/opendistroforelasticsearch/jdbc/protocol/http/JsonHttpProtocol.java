@@ -38,11 +38,11 @@ public class JsonHttpProtocol implements Protocol {
 
     // the value is based on the API endpoint the sql plugin sets up,
     // but this could be made configurable if required
-    public static final String DEFAULT_SQL_CONTEXT_PATH = "/_opendistro/_sql";
+    public static final String DEFAULT_SQL_CONTEXT_PATH = "/_sql";
 
     private static final Header acceptJson = new BasicHeader(HttpHeaders.ACCEPT, "application/json");
     private static final Header contentTypeJson = new BasicHeader(HttpHeaders.CONTENT_TYPE, "application/json");
-    private static final HttpParam requestJdbcFormatParam = new HttpParam("format", "jdbc");
+    private static final HttpParam requestJdbcFormatParam = new HttpParam("format", "json");
     protected static final Header[] defaultJsonHeaders = new Header[]{acceptJson, contentTypeJson};
     private static final Header[] defaultEmptyRequestBodyJsonHeaders = new Header[]{acceptJson};
     protected static final HttpParam[] defaultJdbcParams = new HttpParam[]{requestJdbcFormatParam};
